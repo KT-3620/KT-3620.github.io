@@ -1,7 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
+  content: {
+    markdown: {
+      anchorLinks: false,
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -9,5 +13,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
 });
