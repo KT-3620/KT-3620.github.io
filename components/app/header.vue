@@ -11,7 +11,7 @@
     </NuxtLink>
 
     <NuxtLink
-      class="mx-1 h-10 content-center items-center rounded-lg bg-gray-400 p-2 text-black transition-all duration-200 active:bg-gray-500 active:opacity-50 dark:bg-gray-600 dark:text-white"
+      class="mx-1 flex h-10 content-center items-center rounded-lg bg-gray-400 p-2 text-black transition-all duration-200 active:bg-gray-500 active:opacity-50 dark:bg-gray-600 dark:text-white"
       v-for="route in routes"
       :key="route.name"
       :to="route.path"
