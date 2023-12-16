@@ -1,29 +1,23 @@
 <template>
-  <ContentDoc class="m-5" />
-  <NuxtLink v-if="$route.path.startsWith('/blog')" :to="'/blog'">
-    ブログ一覧に戻る
-  </NuxtLink>
-  <p class="dark:text-white">Current Path: {{ $route.path }}</p>
+  <ContentDoc class="docs" />
 </template>
 
-<script setup lang="ts"></script>
+<style lang="postcss">
+.docs {
+  h1 {
+    @apply text-4xl font-bold mx-1 my-5;
+  }
 
-<style>
-@tailwind base;
+  h2 {
+    @apply text-2xl font-bold mx-1 my-3;
+  }
 
-h1 {
-  @apply text-4xl underline font-extrabold my-5;
-}
+  h3 {
+    @apply text-xl font-semibold mx-1 my-2;
+  }
 
-h2 {
-  @apply text-2xl underline font-bold my-3;
-}
-
-h3 {
-  @apply text-xl my-2;
-}
-
-a {
-  @apply text-blue-500 underline;
+  a {
+    @apply text-blue-500 underline;
+  }
 }
 </style>
