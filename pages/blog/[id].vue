@@ -1,4 +1,5 @@
 <template>
-  <AppDocsBlog />
+  <body class="p-8">
+    <AppDocsTitle />
+  </body>
 </template>
-<script setup lang="ts"></script>
