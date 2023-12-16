@@ -1,4 +1,4 @@
 <template>
-  <ContentDoc />
+  <AppDocsBlog />
 </template>
 <script setup lang="ts"></script>
