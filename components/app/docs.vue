@@ -5,15 +5,15 @@
 <style lang="postcss">
 .docs {
   h1 {
-    @apply text-4xl font-bold mx-1 my-5;
+    @apply mx-1 my-5 text-4xl font-bold;
   }
 
   h2 {
-    @apply text-2xl font-bold mx-1 my-3;
+    @apply mx-1 my-3 text-2xl font-bold;
   }
 
   h3 {
-    @apply text-xl font-semibold mx-1 my-2;
+    @apply mx-1 my-2 text-xl font-semibold;
   }
 
   a {

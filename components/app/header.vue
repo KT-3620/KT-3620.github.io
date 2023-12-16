@@ -1,22 +1,22 @@
 <template>
   <header
-    class="flex h-16 w-full align-center items-center fixed bg-gray-100/80 dark:bg-gray-900/80 shadow-custom"
+    class="align-center shadow-custom fixed flex h-16 w-full items-center bg-gray-100/80 dark:bg-gray-900/80"
   >
     <NuxtLink class="mx-3" :to="'/'">
-      <img
+      <NuxtImg
         src="https://github.com/KT-3620.png"
         alt="KT-3620のアイコン"
-        class="h-10 w-10 rounded-full active:opacity-50 touch-auto transition-opacity duration-200"
+        class="h-10 w-10 touch-auto rounded-full transition-opacity duration-200 active:opacity-50"
       />
     </NuxtLink>
 
     <NuxtLink
-      class="bg-gray-400 dark:bg-gray-600 h-10 p-2 mx-1 active:bg-gray-500 text-black dark:text-white rounded-lg active:opacity-50 transition-all duration-200 items-center content-center flex"
+      class="mx-1 h-10 content-center items-center rounded-lg bg-gray-400 p-2 text-black transition-all duration-200 active:bg-gray-500 active:opacity-50 dark:bg-gray-600 dark:text-white"
       v-for="route in routes"
       :key="route.name"
       :to="route.path"
     >
-      <Icon class="h-8 m-1" :name="route.icon" />
+      <Icon class="m-1 h-8" :name="route.icon" />
       <p class="p-1">{{ route.name }}</p>
     </NuxtLink>
   </header>
@@ -35,7 +35,7 @@ const routes = [
   },
 ];
 </script>
-<style scoped>
+<style lang="postcss">
 @tailwind base;
 
 .shadow-custom {

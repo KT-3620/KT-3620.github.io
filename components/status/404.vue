@@ -1,8 +1,8 @@
 <template>
-  <h1 class="p-3 text-6xl content-center bg-stone-500 font-bold text-center">
+  <h1 class="content-center bg-stone-500 p-3 text-center text-6xl font-bold">
     404
   </h1>
-  <h1 class="p-3 text-2xl content-center font-bold text-center">Not Found</h1>
+  <h1 class="content-center p-3 text-center text-2xl font-bold">Not Found</h1>
   <!-- Back to home -->
 </template>
 

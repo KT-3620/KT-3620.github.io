@@ -6,7 +6,7 @@
         <NuxtLink
           v-for="blog in list"
           :key="blog._path"
-          class="font-lg bg-gray-100 dark:bg-gray-800 p-8 rounded-xl m-1"
+          class="font-lg m-1 rounded-xl bg-gray-100 p-8 dark:bg-gray-800"
           :to="blog._path"
           >{{ blog.title }}
         </NuxtLink>
