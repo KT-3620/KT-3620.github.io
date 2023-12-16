@@ -5,19 +5,27 @@
 <style lang="postcss">
 .docs {
   h1 {
-    @apply mx-1 my-5 text-4xl font-bold;
+    @apply mb-3 mt-5 text-3xl font-bold underline underline-offset-8;
+
+    text-decoration-thickness: 1px;
   }
 
   h2 {
-    @apply mx-1 my-3 text-2xl font-bold;
+    @apply mb-1 mt-3 text-2xl font-bold underline underline-offset-4;
+
+    text-decoration-thickness: 0.5px;
   }
 
   h3 {
-    @apply mx-1 my-2 text-xl font-semibold;
+    @apply mb-0.5 mt-1 text-lg font-semibold;
+  }
+
+  p {
+    @apply p-1 text-base;
   }
 
   a {
-    @apply text-blue-500 underline;
+    @apply text-blue-700 dark:text-blue-300;
   }
 }
 </style>
