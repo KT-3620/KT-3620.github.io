@@ -10,8 +10,10 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+      "postcss-import": {},
+      "tailwindcss/nesting": {},
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-icon", "@nuxt/image"],
 });
