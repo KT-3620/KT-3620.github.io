@@ -1,5 +1,5 @@
 <template>
-  <h1 class="my-4 text-4xl font-extrabold underline underline-offset-8">
+  <h1 class="my-4 text-4xl font-extrabold underline underline-offset-[12px]">
     {{ title }}
   </h1>
   <p class="my-4 text-lg">{{ description }}</p>
