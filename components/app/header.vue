@@ -39,6 +39,6 @@ const routes = [
 @tailwind base;
 
 .shadow-custom {
-  box-shadow: 0px 0px 5px 5px rgba(127, 127, 127, 0.5);
+  box-shadow: 0px 0px 3px 3px rgba(72, 72, 144, 0.3);
 }
 </style>
