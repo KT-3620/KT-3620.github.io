@@ -6,7 +6,7 @@ date: 2023-12-17
 
 # 👋 Hello World!!
 
-こんにちは、KTです。書くものも本当になにもありませんが、とりあえずブログっぽい何かを作りました。理由は、Markdownを書くとそれをHTMLに変換してうまいこと載せてくれる [Nuxt Content](https://content.nuxtjs.org/) というものに一目惚れしたからです。
+こんにちは、KTです。書くものも本当になにもありませんが、とりあえずブログっぽい何かを作りました。理由は、Markdownを書くとそれをHTMLに変換してうまいこと載せてくれる [Nuxt Content](https://content.nuxt.com/) というものに一目惚れしたからです。
 
 # Nuxt Contentって?
 
