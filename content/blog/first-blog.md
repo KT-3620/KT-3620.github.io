@@ -1,6 +1,7 @@
 ---
 title: "Webサイト作成記"
 description: "初めて書いてみたブログだよん"
+searchId: ["Vue", "Nuxt", "Content", "Markdown", "Web", "Blog"]
 date: 2023-12-17
 ---
 
