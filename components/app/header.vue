@@ -33,6 +33,11 @@ const routes = [
     name: "Blog",
     icon: "ph:note",
   },
+  {
+    path: "/search",
+    name: "Search",
+    icon: "ph:magnifying-glass",
+  },
 ];
 </script>
 <style lang="postcss">
