@@ -67,6 +67,8 @@ pages
 
 TypeScriptで書いてますが、`lang="ts"`を消して JavaScript で動かしても動くと思います。（型定義の必要が無かったので）
 
+### pages/search.vue
+
 ```vue
 <script setup lang="ts">
 import MiniSearch from "minisearch";
