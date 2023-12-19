@@ -1,7 +1,9 @@
 <template>
   <div class="p-6">
     <h1 class="py-3 text-4xl font-bold">検索</h1>
-    <p class="pb-3">タイトル・記事・検索用タグから検索が可能です</p>
+    <p class="pb-3">
+      タイトル・記事・設定されている検索用タグ・パスから検索が可能です。記事がそもそも少ないですが。
+    </p>
     <input
       v-model="search"
       class="w-100 m-1 mb-4 flex w-full rounded-md p-3 text-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-blue-500"
