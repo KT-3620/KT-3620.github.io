@@ -31,17 +31,16 @@ jobs:
     steps:
       - name: チェックアウト
         uses: actions/checkout@v4
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          echo "manager=pnpm" >> $GITHUB_OUTPUT
-          echo "command=ci" >> $GITHUB_OUTPUT
-          exit 0
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Nodeをセットアップ
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: "pnpm"
       - name: Pagesをセットアップ
         uses: actions/configure-pages@v4
         with:
@@ -60,9 +59,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: 依存パッケージのインストール
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: pnpm install
       - name: Nuxtで静的サイトのエクスポート
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+        run: pnpm run generate
       - name: 成果物のアップロード
         uses: actions/upload-pages-artifact@v2
         with:
