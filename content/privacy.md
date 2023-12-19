@@ -49,7 +49,7 @@ editedDate: 2023-12-19
 
 # Clickyについて
 
-[Clicky](Clicky)は、Webサイトの分析サービスの1つです。当Webサイトは、[Clicky](Clicky)によるアクセス解析を行っています。取得される情報の詳細は、[Clickyのプライバシーポリシー](https://clicky.com/terms/privacy)をご覧ください。なお、オプトアウトが可能です。詳しくは、[ClickyのOpt-outページ](https://clicky.com/optout)をご覧ください。
+[Clicky](https://clicky.com/)は、Webサイトの分析サービスの1つです。当Webサイトは、[Clicky](https://clicky.com/)によるアクセス解析を行っています。取得される情報の詳細は、[Clickyのプライバシーポリシー](https://clicky.com/terms/privacy)をご覧ください。なお、オプトアウトが可能です。詳しくは、[ClickyのOpt-outページ](https://clicky.com/optout)をご覧ください。
 
 # お問い合わせ
 
