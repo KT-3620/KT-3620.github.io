@@ -15,8 +15,8 @@
     >
       <h1 class="text-xl font-bold">{{ result.title }}</h1>
       <p>{{ result.description }}</p>
-      <p>デバッグ用、検索Id: {{ result.searchId }}</p>
-      <p>デバッグ用、パスの検索: {{ result._path }}</p>
+      <!-- <p>デバッグ用、検索Id: {{ result.searchId }}</p> -->
+      <p class="text-gray-500">{{ result._path }}</p>
     </NuxtLink>
   </div>
 </template>
@@ -46,7 +46,7 @@ onMounted(async () => {
     // useAsyncDataを使用する必要があるみたいなので
     "contentQuery",
     () =>
-      queryContent("blog") // /blog の記事を
+      queryContent("") // /blog の記事を
         .only(fields) // fieldsのフィールドのみ取得
         .find(), // 上記の条件で探してもらって
   );
@@ -74,7 +74,7 @@ onMounted(async () => {
 
 // テキストボックスのsearchの値を監視
 watch(search, async () => {
-  const result = miniSearch.search(search.value, { prefix: true, fuzzy: 0.2 });
+  const result = miniSearch.search(search.value, { prefix: true, fuzzy: 2 });
   results.value = result;
 });
 </script>
