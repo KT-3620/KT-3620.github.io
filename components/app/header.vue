@@ -24,11 +24,6 @@
 <script setup>
 const routes = [
   {
-    path: "/about",
-    name: "About",
-    icon: "ph:question",
-  },
-  {
     path: "/blog",
     name: "Blog",
     icon: "ph:note",
