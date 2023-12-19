@@ -41,6 +41,10 @@ jobs:
         with:
           node-version: "20"
           cache: "pnpm"
+
+      - name: 依存パッケージのインストール
+        run: pnpm install
+
       - name: Pagesをセットアップ
         uses: actions/configure-pages@v4
         with:
@@ -58,10 +62,10 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
-      - name: 依存パッケージのインストール
-        run: pnpm install
+            
       - name: Nuxtで静的サイトのエクスポート
         run: pnpm run generate
+
       - name: 成果物のアップロード
         uses: actions/upload-pages-artifact@v2
         with:
