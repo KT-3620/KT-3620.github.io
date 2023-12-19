@@ -15,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
+useHead({
   title: "@KT-3620",
-  description: "KT-3620's profile",
 });
 </script>
