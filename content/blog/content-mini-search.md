@@ -81,17 +81,28 @@ TypeScriptで書いてますが、`lang="ts"`を消して JavaScript で動か�
 CSS周りは各自でお願いします。
 
 ```vue
+<template>
+  <div>
+    <h1>検索</h1>
+    <input v-model="search" />
+
+    <NuxtLink v-for="result in results" :key="result.id" :to="result._path">
+      <h1>{{ result.title }}</h1>
+      <p>{{ result.description }}</p>
+      <p>デバッグ用、検索Id: {{ result.searchId }}</p>
+      <p>デバッグ用、パス: {{ result._path }}</p>
+    </NuxtLink>
+  </div>
+</template>
+
 <script setup lang="ts">
 import MiniSearch from "minisearch";
 
-/** 検索ボックスに入力された文字 */
 const search = ref("");
-
-/** 検索結果 */
 const results = ref();
 
 /** 取得するフィールド */
-const fields = ["title", "description", "searchId", "_path"];
+const fields = ["title", "description", "searchId", "_path", "search-id"];
 
 /** Mini Searchのインスタンス */
 const miniSearch = new MiniSearch({
@@ -101,56 +112,43 @@ const miniSearch = new MiniSearch({
 
 // 起動時
 onMounted(async () => {
-  await queryContent("blog")
-  /*
-  /blog の記事を検索するように、"blog"を"docs"なりに変えれば /docs を検索するようになります
-  */
-    .only(fields) // fieldsのフィールドのみを取得結果に含む
-    .find()
-    .then((res) => {
-      /** レスポンスを加工するための変数 */
-      let response = res;
+  const { data } = await useAsyncData(
+    // useAsyncDataを使用するほうがいいらしい
+    "contentQuery",
+    () =>
+      queryContent("") // /blog の記事を
+        .only(fields) // fieldsのフィールドのみ取得
+        .find(), // 上記の条件で探してもらって
+  );
 
-      // Mini Searchは検索するのにidを必要らしいので、idを手動で振る
-      for (let index = 0; index < response.length; index++) {
-        response[index].id = index;
-      }
+  /** レスポンスを加工するための変数 */
+  let response = data.value;
+  // console.log(response);
 
-      // デバッグ用: response の内容を見たければ
-      console.log(response);
+  // レスポンスが空なら
+  if (!response) {
+    console.error("検索できる記事データがありません");
+    return;
+  }
 
-      // miniSearchの検索対象に追加
-      miniSearch.addAll(response);
-    });
+  // Mini Searchは検索するのにidを必要らしいので、idを手動で振る
+  for (let index = 0; index < response.length; index++) {
+    response[index].id = index;
+  }
+
+  // response の内容を見たければ
+  console.log(response);
+
+  // miniSearchの検索対象に追加
+  miniSearch.addAll(response);
 });
 
 // テキストボックスのsearchの値を監視
 watch(search, async () => {
-  const result = miniSearch.search(search.value, { prefix: true, fuzzy: 0.2 });
+  const result = miniSearch.search(search.value, { prefix: true, fuzzy: 2 });
   results.value = result;
 });
 </script>
-
-<template>
-    <h1>検索</h1>
-
-    <!-- 検索結果のリンクを表示 -->
-    <input v-model="search" />
-
-    <!-- 検索結果のリンクを表示 -->
-    <NuxtLink
-      v-for="result in results"
-      :key="result.id"
-      :to="result._path"
-    >
-      <h1>{{ result.title }}</h1>
-      <p>{{ result.description }}</p>
-      <!-- ここより下は適宜消してください -->
-      <p>デバッグ用、検索Id: {{ result.searchId }}</p>
-      <p>デバッグ用、パス: {{ result._path }}</p>
-    </NuxtLink>
-  </div>
-</template>
 ```
 
 ### 参考: 記事のマークダウン
@@ -183,7 +181,32 @@ Mini Searchの設定を変えて、検索結果の数の上限を決めれば問
 
 ふざけて1000ファイルでも検索結果が少なければいけるやろと思って試しましたが、全然いけました。すごい。1000ファイルでも`watch()`使って1文字入れるたびに検索しても大きな問題はなさそうです。
 
-というか、改めてライブラリの説明を見たらこのライブラリは**全文検索**ライブラリでした。タイトルとタグだけでの検索にしてはオーバースペックだったかもしれませんが、やりたいことができたので良きとします。
+というか、改めてライブラリの説明を見たらこのライブラリは**全文検索**ライブラリでした。タイトルとタグだけでの検索にしてはオーバースペックだったかもしれませんが、やりたいことができたので良きとします。~~まぁ記事数が検索するほどないんですけど~~
+
+# って思っていたら...
+
+2023/12/19時点の情報です。
+
+`nuxt generate`した時に、なんと、`queryContent()`が404エラーで取得できませんでした。これだとGitHub Pagesに上げた際に検索ができません。
+
+って思ったら[Nuxt ContentのGitHubのIssue](https://github.com/nuxt/content/issues/2062)に上がっていました。
+
+それによると、`nuxt.config.ts`に次の設定を適用するとうまくいったケースがあったそうです。実際、うまく行きき今(2023/12/19時点)のところこの設定を使っています。
+SSR\(Server Side Rendering\)が無効化されてるじゃないかって怒らないでください。あくまで完全に静的なサイトを作る場合\(SSG\)の話です。パフォーマンスにはほとんど影響しないと思います。~~デバッグ時は諦めましょう。そのうち改善されるはずです。~~
+
+```ts
+defineNuxtConfig({
+  ssr: false, // SSRを無効化する
+  content: {
+    experimental: {
+      clientDB: true, // これをtrueにする
+    },
+  },
+  // その他の設定は元の設定を使ってください
+});
+```
+
+# おわりに
 
 ここまで読んでくれてありがとうございます。
 
