@@ -5,7 +5,7 @@ const search = ref("");
 const results = ref();
 
 /** 取得するフィールド */
-const fields = ["title", "description", "searchId", "_path"];
+const fields = ["title", "description", "searchId", "_path", "id"];
 
 /** Mini Searchのインスタンス */
 const miniSearch = new MiniSearch({
@@ -15,24 +15,34 @@ const miniSearch = new MiniSearch({
 
 // 起動時
 onMounted(async () => {
-  await queryContent("blog") // /blog の記事を
-    .only(fields) // fieldsのフィールドのみ取得
-    .find() // 上記の条件で探してもらって
-    .then((res) => {
-      /** レスポンスを加工するための変数 */
-      let response = res;
+  const { data } = await useAsyncData(
+    // useAsyncDataを使用する必要があるみたいなので
+    "contentQuery",
+    () =>
+      queryContent("blog") // /blog の記事を
+        .only(fields) // fieldsのフィールドのみ取得
+        .find(), // 上記の条件で探してもらって
+  );
 
-      // Mini Searchは検索するのにidを必要らしいので、idを手動で振る
-      for (let index = 0; index < response.length; index++) {
-        response[index].id = index;
-      }
+  /** レスポンスを加工するための変数 */
+  let response = data.value;
+  console.log(response);
 
-      // response の内容を見たければ
-      // console.log(response);
+  if (!response) {
+    console.error("検索できる記事データがありません");
+    return;
+  }
 
-      // miniSearchの検索対象に追加
-      miniSearch.addAll(response);
-    });
+  // Mini Searchは検索するのにidを必要らしいので、idを手動で振る
+  for (let index = 0; index < response.length; index++) {
+    response[index].id = index;
+  }
+
+  // response の内容を見たければ
+  // console.log(response);
+
+  // miniSearchの検索対象に追加
+  miniSearch.addAll(response);
 });
 
 // テキストボックスのsearchの値を監視
