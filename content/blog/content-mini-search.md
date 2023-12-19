@@ -193,8 +193,8 @@ Mini Searchの設定を変えて、検索結果の数の上限を決めれば問
 
 って思ったら[Nuxt ContentのGitHubのIssue](https://github.com/nuxt/content/issues/2062)に上がっていました。
 
-それによると、`nuxt.config.ts`に次の設定を適用するとうまくいったケースがあったそうです。実際、うまく行きき今(2023/12/19時点)のところこの設定を使っています。
-SSR\(Server Side Rendering\)が無効化されてるじゃないかって怒らないでください。あくまで完全に静的なサイトを作る場合\(SSG\)の話です。パフォーマンスにはほとんど影響しないと思います。~~デバッグ時は諦めましょう。そのうち改善されるはずです。~~
+それによると、`nuxt.config.ts`に次の設定を適用するとうまくいったケースがあったそうです。実際、今(2023/12/19時点)のところこの設定を使っています。
+ただ、これをするとSSR\(Server Side Rendering\)もSSG\(Static Site Generation)もできなくなります。修正を祈るばかりです...
 
 ```ts
 defineNuxtConfig({
