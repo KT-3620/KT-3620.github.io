@@ -62,6 +62,7 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
+            
       - name: Nuxtで静的サイトのエクスポート
         run: pnpm run generate
 
