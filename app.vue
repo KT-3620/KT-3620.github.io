@@ -1,16 +1,22 @@
 <template>
   <div ontouchstart="">
-    <AppHeader />
-    <div class="h-16" />
-    <body
-      class="min-h-screen bg-white text-black dark:bg-black dark:text-white"
-    >
+    <header>
+      <AppHeader />
+    </header>
+    <body class="min-h-screen text-black dark:text-white">
+      <div class="h-16" />
       <NuxtPage />
     </body>
-    <AppFooter />
+    <footer>
+      <AppFooter />
+    </footer>
   </div>
 </template>
 
 <style lang="postcss">
 @import "public/main.css";
+
+:root {
+  @apply bg-white dark:bg-black;
+}
 </style>
