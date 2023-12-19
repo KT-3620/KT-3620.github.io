@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     markdown: {
       anchorLinks: false,
     },
+    highlight: {
+      theme: "dark-plus",
+      preload: ["js", "ts", "vue"],
+    },
   },
   postcss: {
     plugins: {

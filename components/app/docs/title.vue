@@ -1,8 +1,10 @@
 <template>
-  <h1 class="my-4 text-4xl font-extrabold underline underline-offset-[12px]">
+  <h1 class="my-3 text-4xl font-extrabold leading-tight">
     {{ title }}
   </h1>
-  <p class="my-4 text-lg">{{ description }}</p>
+  <p class="my-4 text-lg leading-tight">{{ description }}</p>
+  <div class="my-5 border-b-2 border-gray-300 dark:border-gray-700"></div>
+
   <AppDocs />
 </template>
 <script setup lang="ts">
