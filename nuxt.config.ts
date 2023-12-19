@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  /* SSGの時にはfalseに、SSRの時にtrueに */
+  ssr: false,
   devtools: { enabled: true },
   content: {
     markdown: {
@@ -8,6 +10,10 @@ export default defineNuxtConfig({
     highlight: {
       theme: "dark-plus",
       preload: ["js", "ts", "vue"],
+    },
+    experimental: {
+      clientDB: true,
+      // SSGの時にtrueに、SSRの時にfalseに
     },
   },
   postcss: {
