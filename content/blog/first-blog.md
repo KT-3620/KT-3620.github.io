@@ -14,9 +14,9 @@ searchId:
     "つくってみた",
     "作ってみた",
   ]
-blog-id: 1
-wrote-date: 2023-12-19
-edited-date: 2023-12-19
+blogId: 1
+wroteDate: "2023-12-19"
+editedDate: "2023-12-19"
 ---
 
 # 👋 Hello World!!
