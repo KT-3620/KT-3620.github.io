@@ -10,8 +10,8 @@
       <h3 class="p-1 text-3xl">👋 Hello World!</h3>
       <h3 class="p-1 text-3xl">こんにちは! 世界!</h3>
     </div>
+    <AppDocs class="p-10" />
   </div>
-  <AppDocs class="m-10" />
 </template>
 
 <script setup lang="ts">
