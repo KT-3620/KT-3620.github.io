@@ -20,3 +20,15 @@
   @apply bg-white dark:bg-black;
 }
 </style>
+
+<script setup lang="ts">
+useHead({
+  script: [
+    {
+      async: true,
+      "data-id": "101437567",
+      src: "https://static.getclicky.com/js",
+    },
+  ],
+});
+</script>
