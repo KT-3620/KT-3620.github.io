@@ -1,5 +1,12 @@
 <template>
   <div ontouchstart="">
+    <NuxtLoadingIndicator
+      color="gray"
+      alpha="0.5"
+      :duration="5000"
+      :throttle="500"
+      class="z-50"
+    />
     <header>
       <AppHeader />
     </header>
