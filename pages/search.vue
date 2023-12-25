@@ -6,7 +6,8 @@
     </p>
     <input
       v-model="search"
-      class="w-100 m-1 mb-4 flex w-full rounded-md p-3 text-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-blue-500"
+      class="w-100 m-1 mb-4 flex w-full rounded-md bg-gray-100 p-3 text-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-blue-500"
+      placeholder="検索..."
     />
 
     <NuxtLink
