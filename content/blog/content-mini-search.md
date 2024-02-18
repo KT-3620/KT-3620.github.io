@@ -19,7 +19,7 @@ searchId:
   ]
 blogId: 2
 wroteDate: "2023-12-19"
-editedDate: "2023-12-19"
+editedDate: "2024-02-19"
 ---
 
 こんにちは、KTです。前回の記事で書いた通り、一目惚れしたNuxt Contentしてこのブログを作ってみたのですが、それにふと検索機能を追加したいと思ったので検索機能を実装しようとしました。
@@ -74,7 +74,9 @@ pages
 
 # コード
 
-TypeScriptで書いてますが、`lang="ts"`を消して JavaScript で動かしても動くと思います。（型定義の必要が無かったので）
+~~TypeScriptで書いてますが、`lang="ts"`を消して JavaScript で動かしても動くと思います。（型定義の必要が無かったので）~~
+
+追記: 結果的にany型が含まれてしまっていたので修正しました。JavaScriptでエラーが出る箇所にはコメントアウトしたコードを使ってください。
 
 ### pages/search.vue
 
@@ -96,10 +98,14 @@ CSS周りは各自でお願いします。
 </template>
 
 <script setup lang="ts">
-import MiniSearch from "minisearch";
+import MiniSearch, { type SearchResult } from "minisearch";
+// JS
+// import MiniSearch from "minisearch";
 
 const search = ref("");
-const results = ref();
+const results: Ref<SearchResult[]> = ref([]);
+// JS
+// const search = ref("");
 
 /** 取得するフィールド */
 const fields = ["title", "description", "searchId", "_path", "search-id"];

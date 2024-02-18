@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import MiniSearch from "minisearch";
+import MiniSearch, { type SearchResult } from "minisearch";
 
 const search = ref("");
-const results = ref();
+const results: Ref<SearchResult[]> = ref([]);
 
 /** 取得するフィールド */
 const fields = ["title", "description", "searchId", "_path", "search-id"];
