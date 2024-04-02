@@ -25,5 +25,15 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-icon", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/content",
+    "nuxt-icon",
+    "@nuxt/image",
+    "@vite-pwa/nuxt",
+  ],
+  pwa: {
+    injectRegister: "auto",
+    registerType: 'autoUpdate'
+  }
 });

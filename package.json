@@ -14,6 +14,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@vite-pwa/nuxt": "^0.6.0",
     "nuxt": "^3.11.1",
     "nuxt-icon": "^0.6.10",
     "prettier": "^3.2.5",
