@@ -15,7 +15,7 @@
     "@nuxt/image": "^1.5.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@vite-pwa/nuxt": "^0.6.0",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.12.4",
     "nuxt-icon": "^0.6.10",
     "prettier": "^3.2.5",
     "vue": "^3.4.22",
